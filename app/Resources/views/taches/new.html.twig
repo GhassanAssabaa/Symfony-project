@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Création de tâche</h1>
+    <div class="form-group" >{% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Ajouter" />
+    {{ form_end(form) }}
+    </div>
+    <ul>
+        <li>
+            <a href="{{ path('taches_index') }}">Revenir à la liste de tâches</a>
+        </li>
+    </ul>
+{% endblock %}

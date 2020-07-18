@@ -1,0 +1,24 @@
+technicien_index:
+    path:     /
+    defaults: { _controller: "techBundle:Technicien:index" }
+    methods:  GET
+
+technicien_show:
+    path:     /{idTech}/show
+    defaults: { _controller: "techBundle:Technicien:show" }
+    methods:  GET
+
+technicien_new:
+    path:     /new
+    defaults: { _controller: "techBundle:Technicien:new" }
+    methods:  [GET, POST]
+
+technicien_edit:
+    path:     /{idTech}/edit
+    defaults: { _controller: "techBundle:Technicien:edit" }
+    methods:  [GET, POST]
+
+technicien_delete:
+    path:     /{idTech}/delete
+    defaults: { _controller: "techBundle:Technicien:delete" }
+    methods:  DELETE

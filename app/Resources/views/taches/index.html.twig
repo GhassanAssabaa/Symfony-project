@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des tâches</h1>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Idtache</th>
+                <th>Nom</th>
+                <th>Descriptif</th>
+                <th>Difficulté</th>
+                <th>Etat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tach in taches %}
+            <tr>
+                <td><a href="{{ path('taches_show', { 'idTache': tach.idTache }) }}">{{ tach.idTache }}</a></td>
+                <td>{{ tach.nom }}</td>
+                <td>{{ tach.descriptif }}</td>
+                <td>{{ tach.difficulte }}</td>
+                <td>{% if tach.etat %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('taches_show', { 'idTache': tach.idTache }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('taches_edit', { 'idTache': tach.idTache }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('taches_new') }}">Créer une nouvelle tâche</a>
+        </li>
+        <li>
+            <a href="{{ path('technicien_index') }}">Afficher les techniciens</a>
+        </li>
+    </ul>
+{% endblock %}

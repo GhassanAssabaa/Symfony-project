@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des techniciens</h1>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Idtech</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Genre</th>
+                <th>Adresse</th>
+                <th>Service</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for technicien in techniciens %}
+            <tr>
+                <td><a href="{{ path('technicien_show', { 'idTech': technicien.idTech }) }}">{{ technicien.idTech }}</a></td>
+                <td>{{ technicien.nom }}</td>
+                <td>{{ technicien.prenom }}</td>
+                <td>{{ technicien.genre }}</td>
+                <td>{{ technicien.adresse }}</td>
+                <td>{{ technicien.service }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('technicien_show', { 'idTech': technicien.idTech }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('technicien_edit', { 'idTech': technicien.idTech }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('technicien_new') }}">Ajouter un nouveau technicien</a>
+        </li>
+        <li>
+            <a href="{{ path('taches_index') }}">Afficher les tâches</a>
+        </li>
+    </ul>
+{% endblock %}

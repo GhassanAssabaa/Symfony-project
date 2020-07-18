@@ -1,0 +1,4 @@
+tache_taches:
+    resource: "@tacheBundle/Resources/config/routing/taches.yml"
+    prefix:   /taches
+

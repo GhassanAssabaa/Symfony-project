@@ -1,0 +1,4 @@
+tech_technicien:
+    resource: "@techBundle/Resources/config/routing/technicien.yml"
+    prefix:   /technicien
+

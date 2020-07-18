@@ -1,0 +1,11 @@
+tache:
+    resource: "@tacheBundle/Resources/config/routing/taches.yml"
+    prefix:   /tache
+
+tech:
+    resource: "@techBundle/Resources/config/routing/technicien.yml"
+    prefix:   /tech
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

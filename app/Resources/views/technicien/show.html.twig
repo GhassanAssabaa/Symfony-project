@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Technicien</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Idtech</th>
+                <td>{{ technicien.idTech }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ technicien.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ technicien.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ technicien.genre }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ technicien.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Service</th>
+                <td>{{ technicien.service }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('technicien_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('technicien_edit', { 'idTech': technicien.idTech }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

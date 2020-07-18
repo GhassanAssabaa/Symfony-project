@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tâches</h1>
+
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>Idtache</th>
+                <td>{{ tach.idTache }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ tach.nom }}</td>
+            </tr>
+            <tr>
+                <th>Descriptif</th>
+                <td>{{ tach.descriptif }}</td>
+            </tr>
+            <tr>
+                <th>Difficulte</th>
+                <td>{{ tach.difficulte }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{% if tach.etat %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('taches_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('taches_edit', { 'idTache': tach.idTache }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
