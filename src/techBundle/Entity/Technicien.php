@@ -85,6 +85,8 @@ class Technicien
         $this->genre = $genre;
     }
 
+
+
     /**
      * @return string
      */
@@ -134,7 +136,7 @@ class Technicien
     /**
      * @var string
      *
-     * @ORM\Column(name="genre", type="string", length=50, nullable=false)
+     * @ORM\Column(name="genre", type="string", nullable=false, columnDefinition="enum('M', 'F')")
      */
     private $genre;
 

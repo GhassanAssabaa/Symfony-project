@@ -5,6 +5,7 @@ namespace techBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class TechnicienType extends AbstractType
 {
@@ -13,7 +14,16 @@ class TechnicienType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('prenom')->add('genre')->add('adresse')->add('service');
+        $builder->add('nom')->add('prenom')->
+        add('genre',ChoiceType::class,
+            [
+                'choices' =>
+                    [
+                        'Femme' => 'F',
+                        'Homme' => 'M',
+                    ]
+            ])
+            ->add('adresse')->add('service');
     }/**
      * {@inheritdoc}
      */
